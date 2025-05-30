@@ -265,8 +265,9 @@
             .hamburger-menu {
                 display: none; /* Hide hamburger icon on desktop */
             }
+            /* CORRECTED: Removed !important here to allow display:flex to take precedence for desktop */
             .navbar-nav {
-                display: flex !important; /* Always show desktop navigation */
+                display: flex;
                 position: static; /* Reset positioning for desktop */
                 width: auto;
                 background-color: transparent;
@@ -359,6 +360,7 @@
             color: #00FFB2;
             text-align: center;
             word-break: break-all;
+            display: none; /* Hidden by default */
         }
     </style>
 </head>
@@ -608,156 +610,96 @@
 
         <hr class="border-t-2 border-lime-400 my-16">
 
-        <section id="cipher" class="py-12 sm:py-16 section-fade-in">
-            <div class="max-w-3xl mx-auto card p-6 sm:p-8 rounded-lg shadow-xl">
-                <h2 class="text-3xl sm:text-4xl font-bold mb-6 text-blue-600 flex items-center justify-center"><span class="icon-style">🔒</span>Glitch in the MATRIX: Decrypt the Cipher</h2>
-                <p class="mb-6 text-lg leading-relaxed text-center">A hidden message lies within the digital static. Can you decrypt it and reveal the truth?</p>
-
-                <div id="gameContainer" class="space-y-6">
-                    <div id="terminalDisplay" class="terminal-display">
-                        <span class="text-gray-500">Initiating secure connection...</span>
-                    </div>
-
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <input type="text" id="cipherInput" class="game-input flex-grow" placeholder="Enter decrypted text..." disabled>
-                        <button id="hackButton" class="game-button">Start Decryption</button>
-                    </div>
-
-                    <div id="messageBox" class="message-box hidden"></div>
-
-                    <div id="rewardBox" class="reward-box hidden">
-                        <p class="text-lime-400 font-bold mb-2">ACCESS GRANTED. The truth is revealed:</p>
-                        <a href="mailto:ghostaset@proton.me" class="text-white hover:underline text-lg sm:text-xl font-mono" id="rewardEmail">ghostaset@proton.me</a>
-                        <p class="text-sm text-gray-500 mt-2">Click to send an encrypted message.</p>
-                    </div>
+        <section id="cipher" class="py-12 sm:py-16 section-fade-in min-h-[80vh] flex flex-col justify-center">
+            <div class="max-w-3xl mx-auto card p-6 sm:p-8 rounded-lg shadow-xl text-center">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-6 text-blue-600 flex items-center justify-center"><span class="icon-style">🔒</span>Glitch in the MATRIX: Cipher Challenge</h2>
+                <p class="mb-6 text-lg leading-relaxed">A hidden message lies buried within the wires. Can you decrypt the truth and uncover the final transmission?</p>
+                
+                <div id="terminalDisplay" class="terminal-display mb-6">
+                    INITIATING ENCRYPTION PROTOCOL... STANDBY FOR DECRYPTION CHALLENGE.
                 </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 mb-6">
+                    <input type="text" id="gameInput" class="flex-grow game-input" placeholder="Enter your decrypted message...">
+                    <button id="submitCipher" class="game-button">SUBMIT DECRYPTION</button>
+                </div>
+
+                <div id="messageBox" class="message-box mt-4 text-center" style="display: none;">
+                    </div>
+
+                <div id="rewardBox" class="reward-box mt-8" style="display: none;">
+                    </div>
+
+                <p class="mt-8 text-sm text-slate-600 leading-relaxed"><strong>Hint:</strong> The key echoes through the very whispers of this project.</p>
             </div>
         </section>
     </main>
 
-    <footer class="bg-slate-800 text-slate-400 p-4 text-center text-sm border-t border-lime-400 mt-8">
-        <p>&copy; 2025 Project Low & Slow. All rights reserved. // <span class="text-lime-400">Digital Echoes.</span></p>
+    <footer class="bg-slate-800 text-slate-400 p-4 text-center border-t border-slate-700 mt-12">
+        <p>&copy; 2025 Project Low & Slow. All rights reserved. <span class="text-lime-400">Digital Echoes.</span></p>
     </footer>
 
     <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Section fade-in on scroll
-        const sections = document.querySelectorAll('.section-fade-in');
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        sections.forEach(section => {
-            observer.observe(section);
-        });
-
-        // Hamburger menu functionality
-        const hamburgerButton = document.getElementById('hamburgerButton');
-        const navbarNav = document.getElementById('navbarNav');
-
-        hamburgerButton.addEventListener('click', () => {
-            navbarNav.classList.toggle('active');
-        });
-
-        // Close navbar when a link is clicked (for mobile)
-        navbarNav.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                if (navbarNav.classList.contains('active')) {
-                    navbarNav.classList.remove('active');
-                }
-            });
-        });
-
-        // Methodology Accordion
-        document.querySelectorAll('.methodology-item h3').forEach(header => {
-            header.addEventListener('click', () => {
-                const item = header.closest('.methodology-item');
-                item.classList.toggle('active');
-            });
-        });
-
         // Chart.js for Doctrine Section
-        document.addEventListener('DOMContentLoaded', () => {
-            const doctrineChartCtx = document.getElementById('doctrineChart');
-            if (doctrineChartCtx) {
-                new Chart(doctrineChartCtx, {
+        document.addEventListener('DOMContentLoaded', function () {
+            const doctrineCtx = document.getElementById('doctrineChart');
+            if (doctrineCtx) {
+                new Chart(doctrineCtx, {
                     type: 'bar',
                     data: {
-                        labels: ['Low & Slow', 'Traditional Exploits'],
+                        labels: ['Low & Slow', 'Traditional Exploits (Known)', 'Traditional Exploits (Zero-Day)'],
                         datasets: [{
-                            label: 'Detection Probability',
-                            data: [5, 95], // Low & Slow has low detection, Traditional high
+                            label: 'Detection Probability by AI',
+                            data: [0.05, 0.85, 0.35], // Hypothetical data
                             backgroundColor: [
                                 'rgba(57, 255, 20, 0.6)', // Neon green for Low & Slow
-                                'rgba(255, 51, 102, 0.6)' // Red for Traditional
+                                'rgba(255, 51, 102, 0.6)', // Red for Known Exploits
+                                'rgba(0, 255, 255, 0.6)' // Cyan for Zero-Day Exploits
                             ],
                             borderColor: [
                                 '#39FF14',
-                                '#FF3366'
-                            ],
-                            borderWidth: 1
-                        },
-                        {
-                            label: 'Impact on AI Core Logic (Long-term)',
-                            data: [80, 20], // Low & Slow has high long-term impact, Traditional low
-                            backgroundColor: [
-                                'rgba(0, 255, 204, 0.6)', // Aqua for Low & Slow
-                                'rgba(255, 153, 0, 0.6)' // Orange for Traditional
-                            ],
-                            borderColor: [
-                                '#00FFCC',
-                                '#FF9900'
+                                '#FF3366',
+                                '#00FFFF'
                             ],
                             borderWidth: 1
                         }]
-                    }, ft
+                    },
                     options: {
                         responsive: true,
                         maintainAspectRatio: false,
                         scales: {
                             y: {
                                 beginAtZero: true,
-                                grid: {
-                                    color: 'rgba(255, 255, 255, 0.1)' // Light grid lines
-                                },
+                                max: 1,
                                 ticks: {
-                                    color: '#d1ffe7' // Pale green for ticks
+                                    color: '#d1ffe7', // Pale green
+                                    callback: function(value) {
+                                        return value.toFixed(2);
+                                    }
+                                },
+                                grid: {
+                                    color: 'rgba(255, 255, 255, 0.1)'
                                 }
                             },
                             x: {
+                                ticks: {
+                                    color: '#d1ffe7' // Pale green
+                                },
                                 grid: {
                                     color: 'rgba(255, 255, 255, 0.1)'
-                                },
-                                ticks: {
-                                    color: '#d1ffe7'
                                 }
                             }
                         },
                         plugins: {
                             legend: {
                                 labels: {
-                                    color: '#d1ffe7' // Pale green for legend text
+                                    color: '#00ffc3' // Aqua
                                 }
+                            },
+                            tooltip: {
+                                backgroundColor: '#1a1a1a',
+                                titleColor: '#00ffc3',
+                                bodyColor: '#d1ffe7'
                             }
                         }
                     }
@@ -765,106 +707,172 @@
             }
         });
 
+        // Hamburger Menu Logic
+        document.getElementById('hamburgerButton').addEventListener('click', function() {
+            const navbarNav = document.getElementById('navbarNav');
+            navbarNav.classList.toggle('active');
+        });
 
-        // Cipher Game Logic
-        const targetPhrase = "SILENCEGENERIC"; // The phrase to be typed
-        const rewardEmail = "ghostaset@proton.me"; // The reward email
-        let currentScrambledPhrase = "";
-        let attempts = 0;
-        const maxAttempts = 3; // Number of attempts allowed
+        // Close hamburger menu when a nav link is clicked
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function() {
+                const navbarNav = document.getElementById('navbarNav');
+                if (window.innerWidth < 768) { // Only close if on mobile
+                    navbarNav.classList.remove('active');
+                }
+            });
+        });
 
-        // Get DOM elements for the game
+        // Methodology Accordion Logic
+        document.querySelectorAll('.methodology-item').forEach(item => {
+            item.addEventListener('click', function() {
+                // Close all other open items
+                document.querySelectorAll('.methodology-item.active').forEach(openItem => {
+                    if (openItem !== item) {
+                        openItem.classList.remove('active');
+                    }
+                });
+                // Toggle the clicked item
+                this.classList.toggle('active');
+            });
+        });
+
+        // Section Fade-in on Scroll Logic
+        const sections = document.querySelectorAll('.section-fade-in');
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const sectionObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target); // Stop observing once visible
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            sectionObserver.observe(section);
+        });
+
+        // --- Glitch in the MATRIX Game Logic (Cipher Section) ---
+
         const terminalDisplay = document.getElementById('terminalDisplay');
-        const cipherInput = document.getElementById('cipherInput');
-        const hackButton = document.getElementById('hackButton');
+        const gameInput = document.getElementById('gameInput');
+        const submitButton = document.getElementById('submitCipher');
         const messageBox = document.getElementById('messageBox');
         const rewardBox = document.getElementById('rewardBox');
-        const rewardEmailLink = document.getElementById('rewardEmail');
 
-        // Function to scramble the phrase (simple masking)
-        function scramblePhrase(phrase) {
-            let scrambled = "";
-            for (let i = 0; i < phrase.length; i++) {
-                // Mask some characters with '*'
-                if (i % 3 === 0 || i % 5 === 0) { // Mask every 3rd and 5th character
-                    scrambled += '*';
-                } else {
-                    scrambled += phrase[i];
-                }
+        // Vigenere Cipher Implementation
+        const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+        function normalizeText(text) {
+            return text.toUpperCase().replace(/[^A-Z]/g, ''); // Remove non-alphabetic characters
+        }
+
+        function encryptVigenere(plaintext, key) {
+            plaintext = normalizeText(plaintext);
+            key = normalizeText(key);
+            let ciphertext = '';
+            for (let i = 0; i < plaintext.length; i++) {
+                const charCode = plaintext.charCodeAt(i) - 65; // A=0, B=1...
+                const keyCode = key.charCodeAt(i % key.length) - 65;
+                const encryptedCharCode = (charCode + keyCode) % 26;
+                ciphertext += alphabet[encryptedCharCode];
             }
-            return scrambled;
+            return ciphertext;
         }
 
-        // Function to display messages
-        function displayMessage(message, type = 'info') {
-            messageBox.textContent = message;
-            messageBox.className = `message-box mt-4 ${type}`; // Reset classes and add type
-            messageBox.classList.remove('hidden');
-            setTimeout(() => {
-                messageBox.classList.add('hidden'); // Hide after a few seconds
-            }, 5000);
+        function decryptVigenere(ciphertext, key) {
+            ciphertext = normalizeText(ciphertext);
+            key = normalizeText(key);
+            let plaintext = '';
+            for (let i = 0; i < ciphertext.length; i++) {
+                const charCode = ciphertext.charCodeAt(i) - 65;
+                const keyCode = key.charCodeAt(i % key.length) - 65;
+                const decryptedCharCode = (charCode - keyCode + 26) % 26; // Add 26 to handle negative results
+                plaintext += alphabet[decryptedCharCode];
+            }
+            return plaintext;
         }
 
-        // Function to start the game
+        // Game Variables
+        const targetMessage = "THE SILENCE OF MACHINES IS THE SOUND OF OUR VICTORY";
+        const secretKey = "WHISPERSOVERWIRES"; // This is the key the player needs to find!
+        let currentCiphertext = "";
+
+        function displayMessage(text, type = 'info') {
+            messageBox.textContent = text;
+            messageBox.className = `message-box ${type} mt-4 text-center`;
+            messageBox.style.display = 'block';
+        }
+
+        function hideMessage() {
+            messageBox.style.display = 'none';
+            messageBox.textContent = '';
+            messageBox.className = 'message-box';
+        }
+
+        function showReward() {
+            rewardBox.innerHTML = `
+                <p class="text-xl font-bold mb-4">ACCESS GRANTED. TRANSMISSION COMPLETE.</p>
+                <p class="mb-2">The true reward is understanding.</p>
+                <p class="mb-2">But for your effort, a direct channel:</p>
+                <p class="text-2xl font-mono break-all text-lime-300">${"ghostasset@proton.me"}</p>
+                <p class="mt-4 text-sm italic">"The echo always finds its source."</p>
+            `;
+            rewardBox.style.display = 'block';
+            submitButton.disabled = true;
+            gameInput.disabled = true;
+        }
+
         function startGame() {
-            attempts = 0;
-            currentScrambledPhrase = scramblePhrase(targetPhrase);
-            terminalDisplay.innerHTML = `<span class="text-lime-400">DECRYPTING...</span><br>${currentScrambledPhrase}`;
-            cipherInput.value = '';
-            cipherInput.disabled = false;
-            cipherInput.focus();
-            hackButton.textContent = 'Submit Decryption';
-            hackButton.removeEventListener('click', startGame); // Remove start listener
-            hackButton.addEventListener('click', checkCipher); // Add check listener
-            rewardBox.classList.add('hidden'); // Hide reward box if visible
-            displayMessage(`Attempts left: ${maxAttempts - attempts}`, 'info');
+            // Encrypt the target message with the secret key for the challenge
+            currentCiphertext = encryptVigenere(targetMessage, secretKey);
+            terminalDisplay.textContent = `DECRYPT: ${currentCiphertext}`;
+            displayMessage("Enter the decrypted message below. The system is waiting for your insight.", "info");
+            gameInput.value = '';
+            gameInput.focus();
+            hideReward(); // Ensure reward is hidden on start
+            hideMessage(); // Ensure message is hidden on start
+            submitButton.disabled = false;
+            gameInput.disabled = false;
         }
 
-        // Function to check the cipher input
-        function checkCipher() {
-            const userInput = cipherInput.value.trim().toUpperCase(); // Convert to uppercase for case-insensitive check
+        function handleInput() {
+            const playerInput = gameInput.value.trim();
+            if (!playerInput) {
+                displayMessage("Input cannot be empty. Re-evaluate your parameters.", "error");
+                return;
+            }
 
-            if (userInput === targetPhrase) {
-                terminalDisplay.innerHTML = `<span class="text-green-400">DECRYPTION SUCCESSFUL!</span>`;
-                displayMessage("Access Granted. The MATRIX is yours.", 'success');
-                cipherInput.disabled = true;
-                hackButton.disabled = true;
-                rewardEmailLink.href = `mailto:${rewardEmail}`;
-                rewardEmailLink.textContent = rewardEmail;
-                rewardBox.classList.remove('hidden'); // Show reward
+            const normalizedInput = normalizeText(playerInput);
+            const normalizedTarget = normalizeText(targetMessage);
+
+            if (normalizedInput === normalizedTarget) {
+                displayMessage("DECRYPTION SUCCESSFUL. PROTOCOL COMPLETE.", "success");
+                terminalDisplay.textContent = `SYSTEM MESSAGE: Decryption Verified. Initiating Reward Protocol.`;
+                setTimeout(showReward, 2000); // Delay showing reward for dramatic effect
             } else {
-                attempts++;
-                if (attempts < maxAttempts) {
-                    terminalDisplay.innerHTML = `<span class="text-red-400">ACCESS DENIED. RETRYING...</span><br>${scramblePhrase(targetPhrase)}`; // Rescramble for next attempt
-                    displayMessage(`Incorrect. Attempts left: ${maxAttempts - attempts}`, 'error');
-                    cipherInput.value = ''; // Clear input for next try
-                } else {
-                    terminalDisplay.innerHTML = `<span class="text-red-600">SYSTEM LOCKED. INTRUSION DETECTED.</span>`;
-                    displayMessage("Too many failed attempts. System locked.", 'error');
-                    cipherInput.disabled = true;
-                    hackButton.disabled = true;
-                    // Optionally, reset button to allow restart
-                    setTimeout(() => {
-                        hackButton.textContent = 'Restart Decryption';
-                        hackButton.disabled = false;
-                        hackButton.removeEventListener('click', checkCipher);
-                        hackButton.addEventListener('click', startGame);
-                        terminalDisplay.innerHTML = `<span class="text-gray-500">Initiating secure connection...</span>`;
-                    }, 5000); // Allow restart after 5 seconds
-                }
+                displayMessage("DECRYPTION FAILED. ACCESS DENIED. Try again, Analyst.", "error");
+                gameInput.value = ''; // Clear input on failure
             }
         }
 
-        // Initial setup for the game button
-        hackButton.addEventListener('click', startGame);
-
-        // Allow pressing Enter in the input field to submit
-        cipherInput.addEventListener('keypress', function(event) {
-            if (event.key === 'Enter' && !cipherInput.disabled) {
-                checkCipher();
+        // Event Listeners for the game
+        submitButton.addEventListener('click', handleInput);
+        gameInput.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                handleInput();
             }
         });
 
+        // Initialize the game and other JS elements when the page loads
+        document.addEventListener('DOMContentLoaded', startGame);
     </script>
 </body>
 </html>
