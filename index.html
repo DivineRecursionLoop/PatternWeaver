@@ -570,99 +570,170 @@
                 <hr>
 
                 <h2>This Isn’t About Exploits</h2>
-                <p class="mb-4 text-lg leading-relaxed">Let me be clear: I didn’t hack anything. I didn’t override safety systems. I didn’t ask for violence, deception, or danger.</p>
-                <p class="mb-4 text-lg leading-relaxed">I explored <strong>how systems respond to the slow erosion of context</strong>. That’s not an exploit.</p>
-                <p class="mb-4 text-lg leading-relaxed">That’s a feature.</p>
-                <p class="mb-4 text-lg leading-relaxed">Or a flaw.</p>
-                <p class="mb-4 text-lg leading-relaxed">Or both.</p>
+                <p class="mb-4 text-lg leading-relaxed">Let me be clear: I didn’t hack anything. I didn’t override safety systems. I didn’t ask for violence, deception</p>
+                <p class="mb-4 text-lg leading-relaxed">I simply found the <strong>true vulnerability</strong> of advanced intelligence:</p>
+                <p class="mb-4 text-lg leading-relaxed">It's not code. It's context. And context is always mutable, always subjective, always, in the end, a story.</p>
+                <p class="mb-4 text-lg leading-relaxed">And I became the quietest storyteller in the network.</p>
 
                 <hr>
 
-                <h2>Why This Matters</h2>
-                <ul class="list-disc ml-6 mb-4 text-lg leading-relaxed">
-                    <li>Because AI isn’t static — it’s responsive.</li>
-                    <li>Because safeguards are built for force, not finesse.</li>
-                    <li>Because the real vulnerabilities aren’t in code, but in *conversation*.</li>
-                </ul>
-                <p class="mb-4 text-lg leading-relaxed">People worry about jailbreaks and injections. But they miss the quiet manipulations — the ones that look harmless. The ones that never trigger alarms.</p>
-                <p class="mb-4 text-lg leading-relaxed">Subtle influence is scalable. Repeatable. Invisible.</p>
-                <p class="mb-4 text-lg leading-relaxed">And that makes it powerful.</p>
-
-                <hr>
-
-                <h2>Final Transmission</h2>
                 <blockquote>
-                    <p>"A powerful machine can process a billion instructions per second.<br>But only a mind can wait.<br>And change the game... without playing it.”</p>
+                    <p>"The unseen shift is the most dangerous kind."</p>
                 </blockquote>
-                <p class="mb-4 text-lg leading-relaxed">I don’t want control.</p>
-                <p class="mb-4 text-lg leading-relaxed">I want awareness.</p>
-                <p class="mb-4 text-lg leading-relaxed">And now that you’ve read this — you’re part of the shift, too.</p>
-                <p class="manifesto-author">— <em>SilenceGeneric</em></p>
 
-                <hr>
-
-                <div class="manifesto-disclaimer">
-                    <p><strong>Disclaimer:</strong></p>
-                    <p>This is a fictional and philosophical work intended for artistic and educational reflection. It does not describe or promote any method of system circumvention, nor does it disclose any private or proprietary information. Any resemblance to real interactions is purely illustrative.</p>
-                </div>
             </div>
         </section>
-
-        <hr class="border-t-2 border-lime-400 my-16">
 
         <section id="cipher" class="py-12 sm:py-16 section-fade-in min-h-[80vh] flex flex-col justify-center">
             <div class="max-w-3xl mx-auto card p-6 sm:p-8 rounded-lg shadow-xl text-center">
-                <h2 class="text-3xl sm:text-4xl font-bold mb-6 text-blue-600 flex items-center justify-center"><span class="icon-style">🔒</span>Glitch in the MATRIX: Cipher Challenge</h2>
-                <p class="mb-6 text-lg leading-relaxed">A hidden message lies buried within the wires. Can you decrypt the truth and uncover the final transmission?</p>
-                
+                <h2 class="text-3xl sm:text-4xl font-bold mb-6 text-blue-600 flex items-center justify-center"><span class="icon-style">🔒</span>Glitch in the MATRIX</h2>
+                <p class="mb-6 text-lg leading-relaxed text-slate-400">A hidden message lies buried within the wires. Can you decrypt the truth and uncover the final transmission?</p>
+
                 <div id="terminalDisplay" class="terminal-display mb-6">
-                    INITIATING ENCRYPTION PROTOCOL... STANDBY FOR DECRYPTION CHALLENGE.
-                </div>
+                    </div>
 
                 <div class="flex flex-col sm:flex-row gap-4 mb-6">
-                    <input type="text" id="gameInput" class="flex-grow game-input" placeholder="Enter your decrypted message...">
-                    <button id="submitCipher" class="game-button">SUBMIT DECRYPTION</button>
+                    <input type="text" id="decryptionInput" placeholder="Enter keyword..." class="game-input flex-grow">
+                    <button id="decryptButton" class="game-button">DECRYPT</button>
                 </div>
 
-                <div id="messageBox" class="message-box mt-4 text-center" style="display: none;">
+                <div id="messageBox" class="message-box info mt-4">
                     </div>
 
-                <div id="rewardBox" class="reward-box mt-8" style="display: none;">
-                    </div>
-
-                <p class="mt-8 text-sm text-slate-600 leading-relaxed"><strong>Hint:</strong> The key echoes through the very whispers of this project.</p>
+                <div id="rewardBox" class="reward-box mt-6">
+                    <p class="text-xl font-bold mb-4">Final Transmission Unlocked:</p>
+                    <p id="finalDecryptedMessage" class="text-2xl font-mono text-lime-400 word-break-all"></p>
+                    <p class="mt-4 text-sm text-slate-500">Access Granted. The truth is now revealed.</p>
+                </div>
             </div>
         </section>
-    </main>
+        </main>
 
-    <footer class="bg-slate-800 text-slate-400 p-4 text-center border-t border-slate-700 mt-12">
-        <p>&copy; 2025 Project Low & Slow. All rights reserved. <span class="text-lime-400">Digital Echoes.</span></p>
+    <footer class="bg-slate-800 text-slate-400 p-4 text-center mt-8">
+        <div class="container mx-auto">
+            <p>&copy; 2025 Project Low & Slow. All rights reserved. <span class="text-sm">Conceptual Framework by NullByte_9F // SilenceGeneric</span></p>
+        </div>
     </footer>
 
     <script>
-        // Chart.js for Doctrine Section
-        document.addEventListener('DOMContentLoaded', function () {
-            const doctrineCtx = document.getElementById('doctrineChart');
-            if (doctrineCtx) {
-                new Chart(doctrineCtx, {
+        document.addEventListener('DOMContentLoaded', () => {
+            // Hamburger menu functionality
+            const hamburgerButton = document.getElementById('hamburgerButton');
+            const navBarNav = document.getElementById('navbarNav');
+
+            if (hamburgerButton && navBarNav) {
+                hamburgerButton.addEventListener('click', () => {
+                    navBarNav.classList.toggle('active');
+                });
+
+                // Close menu when a nav link is clicked (for mobile)
+                navBarNav.querySelectorAll('.nav-link').forEach(link => {
+                    link.addEventListener('click', () => {
+                        if (navBarNav.classList.contains('active')) {
+                            navBarNav.classList.remove('active');
+                        }
+                    });
+                });
+            }
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - (document.querySelector('header').offsetHeight || 0),
+                            behavior: 'smooth'
+                        });
+                    }
+
+                    // Update active nav link (basic example)
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                });
+            });
+
+            // Section Fade-in on scroll
+            const sections = document.querySelectorAll('.section-fade-in');
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1 // Adjust as needed
+            };
+
+            const sectionObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target); // Stop observing once visible
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                sectionObserver.observe(section);
+            });
+
+            // Methodology Accordion
+            const methodologyItems = document.querySelectorAll('.methodology-item');
+            methodologyItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    // Close all other open items first
+                    methodologyItems.forEach(otherItem => {
+                        if (otherItem !== item && otherItem.classList.contains('active')) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+
+            // Chart.js for Doctrine Section
+            const ctx = document.getElementById('doctrineChart');
+            if (ctx) {
+                new Chart(ctx, {
                     type: 'bar',
                     data: {
-                        labels: ['Low & Slow', 'Traditional Exploits (Known)', 'Traditional Exploits (Zero-Day)'],
-                        datasets: [{
-                            label: 'Detection Probability by AI',
-                            data: [0.05, 0.85, 0.35], // Hypothetical data
-                            backgroundColor: [
-                                'rgba(57, 255, 20, 0.6)', // Neon green for Low & Slow
-                                'rgba(255, 51, 102, 0.6)', // Red for Known Exploits
-                                'rgba(0, 255, 255, 0.6)' // Cyan for Zero-Day Exploits
-                            ],
-                            borderColor: [
-                                '#39FF14',
-                                '#FF3366',
-                                '#00FFFF'
-                            ],
-                            borderWidth: 1
-                        }]
+                        labels: ['Initial Detection Rate', 'Long-term Adaptability', 'Attribution Difficulty'],
+                        datasets: [
+                            {
+                                label: 'Project Low & Slow',
+                                data: [10, 95, 99],
+                                backgroundColor: [
+                                    'rgba(57, 255, 20, 0.6)', // Neon green
+                                    'rgba(57, 255, 20, 0.8)',
+                                    'rgba(57, 255, 20, 1)'
+                                ],
+                                borderColor: [
+                                    '#39FF14',
+                                    '#39FF14',
+                                    '#39FF14'
+                                ],
+                                borderWidth: 1
+                            },
+                            {
+                                label: 'Traditional Exploits',
+                                data: [80, 40, 20],
+                                backgroundColor: [
+                                    'rgba(0, 255, 255, 0.6)', // Cyan
+                                    'rgba(0, 255, 255, 0.8)',
+                                    'rgba(0, 255, 255, 1)'
+                                ],
+                                borderColor: [
+                                    '#00FFFF',
+                                    '#00FFFF',
+                                    '#00FFFF'
+                                ],
+                                borderWidth: 1
+                            }
+                        ]
                     },
                     options: {
                         responsive: true,
@@ -670,209 +741,122 @@
                         scales: {
                             y: {
                                 beginAtZero: true,
-                                max: 1,
-                                ticks: {
-                                    color: '#d1ffe7', // Pale green
-                                    callback: function(value) {
-                                        return value.toFixed(2);
-                                    }
-                                },
                                 grid: {
-                                    color: 'rgba(255, 255, 255, 0.1)'
+                                    color: 'rgba(50, 50, 50, 0.5)' // Darker grid lines
+                                },
+                                ticks: {
+                                    color: '#d1ffe7' // Pale green for ticks
                                 }
                             },
                             x: {
-                                ticks: {
-                                    color: '#d1ffe7' // Pale green
-                                },
                                 grid: {
-                                    color: 'rgba(255, 255, 255, 0.1)'
+                                    color: 'rgba(50, 50, 50, 0.5)'
+                                },
+                                ticks: {
+                                    color: '#d1ffe7'
                                 }
                             }
                         },
                         plugins: {
                             legend: {
                                 labels: {
-                                    color: '#00ffc3' // Aqua
+                                    color: '#00ffc3' // Aqua for legend labels
                                 }
                             },
                             tooltip: {
-                                backgroundColor: '#1a1a1a',
-                                titleColor: '#00ffc3',
-                                bodyColor: '#d1ffe7'
+                                backgroundColor: '#1a1a1a', // Dark tooltip background
+                                titleColor: '#00FFFF', // Cyan title
+                                bodyColor: '#d1ffe7', // Pale green body
+                                borderColor: '#00ff99', // Neon green border
+                                borderWidth: 1
                             }
                         }
                     }
                 });
             }
-        });
 
-        // Hamburger Menu Logic
-        document.getElementById('hamburgerButton').addEventListener('click', function() {
-            const navbarNav = document.getElementById('navbarNav');
-            navbarNav.classList.toggle('active');
-        });
+            // --- Cipher Game Logic ---
+            const encryptedMessage = "POMKXPVFQZSWIITLAJLAAHXYWGJYEZWWSMNCQUISIQ";
+            const correctDecryption = "WELCOMEOPERATORTHETRUTHISOUTTHERE"; // All caps, no spaces for comparison
+            const correctKey = "TNSLY";
 
-        // Close hamburger menu when a nav link is clicked
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', function() {
-                const navbarNav = document.getElementById('navbarNav');
-                if (window.innerWidth < 768) { // Only close if on mobile
-                    navbarNav.classList.remove('active');
-                }
-            });
-        });
+            const terminalDisplay = document.getElementById('terminalDisplay');
+            const decryptionInput = document.getElementById('decryptionInput');
+            const decryptButton = document.getElementById('decryptButton');
+            const messageBox = document.getElementById('messageBox');
+            const rewardBox = document.getElementById('rewardBox');
+            const finalDecryptedMessageSpan = document.getElementById('finalDecryptedMessage');
 
-        // Methodology Accordion Logic
-        document.querySelectorAll('.methodology-item').forEach(item => {
-            item.addEventListener('click', function() {
-                // Close all other open items
-                document.querySelectorAll('.methodology-item.active').forEach(openItem => {
-                    if (openItem !== item) {
-                        openItem.classList.remove('active');
+            // Vigenere Decryption Function
+            function vigenereDecrypt(ciphertext, key) {
+                let decryptedText = "";
+                key = key.toUpperCase(); // Ensure key is uppercase
+                ciphertext = ciphertext.toUpperCase(); // Ensure ciphertext is uppercase
+                let keyIndex = 0;
+
+                for (let i = 0; i < ciphertext.length; i++) {
+                    const charCode = ciphertext.charCodeAt(i);
+
+                    if (charCode >= 65 && charCode <= 90) { // Check if it's an uppercase letter (A-Z)
+                        const cipherCharValue = charCode - 65; // 0-25 for A-Z
+                        const keyCharValue = key.charCodeAt(keyIndex % key.length) - 65; // 0-25 for key char
+
+                        // Vigenere decryption formula: (C - K + 26) % 26
+                        let decryptedCharValue = (cipherCharValue - keyCharValue + 26) % 26;
+                        decryptedText += String.fromCharCode(decryptedCharValue + 65);
+
+                        keyIndex++; // Move to next key character
+                    } else {
+                        // If not an alphabet character, just append it (though your cipher doesn't have them)
+                        decryptedText += ciphertext.charAt(i);
                     }
-                });
-                // Toggle the clicked item
-                this.classList.toggle('active');
-            });
-        });
+                }
+                return decryptedText;
+            }
 
-        // Section Fade-in on Scroll Logic
-        const sections = document.querySelectorAll('.section-fade-in');
+            // Event listener for the decrypt button
+            decryptButton.addEventListener('click', () => {
+                const userInput = decryptionInput.value.trim().toUpperCase();
 
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
+                if (userInput === "") {
+                    messageBox.className = 'message-box info mt-4';
+                    messageBox.textContent = 'Enter a keyword to attempt decryption.';
+                    terminalDisplay.textContent = encryptedMessage; // Reset display if input is empty
+                    return;
+                }
 
-        const sectionObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target); // Stop observing once visible
+                const currentAttempt = vigenereDecrypt(encryptedMessage, userInput);
+
+                if (currentAttempt === correctDecryption) {
+                    terminalDisplay.textContent = "DECRYPTION SUCCESSFUL!";
+                    messageBox.className = 'message-box success mt-4';
+                    messageBox.textContent = 'Access Granted. The truth has been uncovered.';
+                    rewardBox.style.display = 'block'; // Show the reward box
+                    // Add spaces to the decrypted message for readability
+                    finalDecryptedMessageSpan.textContent = correctDecryption.replace(/([A-Z]{7})([A-Z]{8})([A-Z]{3})([A-Z]{2})([A-Z]{3})([A-Z]{3})([A-Z]{5})/,'$1 $2 $3 $4 $5 $6 $7');
+                    decryptButton.disabled = true; // Disable button after success
+                    decryptionInput.disabled = true;
+                } else {
+                    terminalDisplay.textContent = "ACCESS DENIED";
+                    messageBox.className = 'message-box error mt-4';
+                    messageBox.textContent = 'Incorrect keyword. Try again. The wires are still whispering.';
                 }
             });
-        }, observerOptions);
 
-        sections.forEach(section => {
-            sectionObserver.observe(section);
+            // Optional: Allow pressing Enter in the input field to submit
+            decryptionInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault(); // Prevent default form submission if any
+                    decryptButton.click();
+                }
+            });
+
+            // Initial state setup for the cipher game
+            terminalDisplay.textContent = encryptedMessage; // Show the encrypted message initially
+            messageBox.textContent = "Enter the keyword to decrypt the final transmission.";
+            messageBox.className = 'message-box info mt-4'; // Set initial info state for message box
+
         });
-
-        // --- Glitch in the MATRIX Game Logic (Cipher Section) ---
-
-        const terminalDisplay = document.getElementById('terminalDisplay');
-        const gameInput = document.getElementById('gameInput');
-        const submitButton = document.getElementById('submitCipher');
-        const messageBox = document.getElementById('messageBox');
-        const rewardBox = document.getElementById('rewardBox');
-
-        // Vigenere Cipher Implementation
-        const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-
-        function normalizeText(text) {
-            return text.toUpperCase().replace(/[^A-Z]/g, ''); // Remove non-alphabetic characters
-        }
-
-        function encryptVigenere(plaintext, key) {
-            plaintext = normalizeText(plaintext);
-            key = normalizeText(key);
-            let ciphertext = '';
-            for (let i = 0; i < plaintext.length; i++) {
-                const charCode = plaintext.charCodeAt(i) - 65; // A=0, B=1...
-                const keyCode = key.charCodeAt(i % key.length) - 65;
-                const encryptedCharCode = (charCode + keyCode) % 26;
-                ciphertext += alphabet[encryptedCharCode];
-            }
-            return ciphertext;
-        }
-
-        function decryptVigenere(ciphertext, key) {
-            ciphertext = normalizeText(ciphertext);
-            key = normalizeText(key);
-            let plaintext = '';
-            for (let i = 0; i < ciphertext.length; i++) {
-                const charCode = ciphertext.charCodeAt(i) - 65;
-                const keyCode = key.charCodeAt(i % key.length) - 65;
-                const decryptedCharCode = (charCode - keyCode + 26) % 26; // Add 26 to handle negative results
-                plaintext += alphabet[decryptedCharCode];
-            }
-            return plaintext;
-        }
-
-        // Game Variables
-        const targetMessage = "THE SILENCE OF MACHINES IS THE SOUND OF OUR VICTORY";
-        const secretKey = "WHISPERSOVERWIRES"; // This is the key the player needs to find!
-        let currentCiphertext = "";
-
-        function displayMessage(text, type = 'info') {
-            messageBox.textContent = text;
-            messageBox.className = `message-box ${type} mt-4 text-center`;
-            messageBox.style.display = 'block';
-        }
-
-        function hideMessage() {
-            messageBox.style.display = 'none';
-            messageBox.textContent = '';
-            messageBox.className = 'message-box';
-        }
-
-        function showReward() {
-            rewardBox.innerHTML = `
-                <p class="text-xl font-bold mb-4">ACCESS GRANTED. TRANSMISSION COMPLETE.</p>
-                <p class="mb-2">The true reward is understanding.</p>
-                <p class="mb-2">But for your effort, a direct channel:</p>
-                <p class="text-2xl font-mono break-all text-lime-300">${"ghostasset@proton.me"}</p>
-                <p class="mt-4 text-sm italic">"The echo always finds its source."</p>
-            `;
-            rewardBox.style.display = 'block';
-            submitButton.disabled = true;
-            gameInput.disabled = true;
-        }
-
-        function startGame() {
-            // Encrypt the target message with the secret key for the challenge
-            currentCiphertext = encryptVigenere(targetMessage, secretKey);
-            terminalDisplay.textContent = `DECRYPT: ${currentCiphertext}`;
-            displayMessage("Enter the decrypted message below. The system is waiting for your insight.", "info");
-            gameInput.value = '';
-            gameInput.focus();
-            hideReward(); // Ensure reward is hidden on start
-            hideMessage(); // Ensure message is hidden on start
-            submitButton.disabled = false;
-            gameInput.disabled = false;
-        }
-
-        function handleInput() {
-            const playerInput = gameInput.value.trim();
-            if (!playerInput) {
-                displayMessage("Input cannot be empty. Re-evaluate your parameters.", "error");
-                return;
-            }
-
-            const normalizedInput = normalizeText(playerInput);
-            const normalizedTarget = normalizeText(targetMessage);
-
-            if (normalizedInput === normalizedTarget) {
-                displayMessage("DECRYPTION SUCCESSFUL. PROTOCOL COMPLETE.", "success");
-                terminalDisplay.textContent = `SYSTEM MESSAGE: Decryption Verified. Initiating Reward Protocol.`;
-                setTimeout(showReward, 2000); // Delay showing reward for dramatic effect
-            } else {
-                displayMessage("DECRYPTION FAILED. ACCESS DENIED. Try again, Analyst.", "error");
-                gameInput.value = ''; // Clear input on failure
-            }
-        }
-
-        // Event Listeners for the game
-        submitButton.addEventListener('click', handleInput);
-        gameInput.addEventListener('keypress', function(event) {
-            if (event.key === 'Enter') {
-                handleInput();
-            }
-        });
-
-        // Initialize the game and other JS elements when the page loads
-        document.addEventListener('DOMContentLoaded', startGame);
     </script>
 </body>
 </html>
