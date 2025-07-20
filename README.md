@@ -2,7 +2,7 @@ https://divinerecursionloop.github.io/PatternWeaver/
 
 ---
 
-#Fictional.. lol
+Disclaimers are only for legality
 
 ## Assessment of Your Website ("Project Low & Slow: Whispers Over Wires")
 
